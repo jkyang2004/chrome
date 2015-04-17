@@ -1,4 +1,5 @@
 {
+  "author": "http://sports.chosun.com",
   "manifest_version": 2,
   "name": "MyAd",
   "version": "1.0",
@@ -30,5 +31,9 @@
       "js": ["ad_pressian.js"],
       "run_at" : "document_end"
     }
-  ]
+  ],
+  "browser_action": {
+    "default_icon": "icon_big.png",
+    "default_popup": "popup.html"
+  }
 }
