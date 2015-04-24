@@ -4,31 +4,120 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>Hello</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <style>
-.border {
-	width: 40px;
-	height: 40px;
-	padding: 10px;
-	margin: 10px;
-    outline: 3px solid orange;
+.box {
 }
+#target {
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+	width: 20px
+	height: 20px
+    background-color: green;
+    color: white;
+    padding: 0;
+	display: none;
+}
+
+.widget-expand-button-pegman-icon {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAADMCAYAAAAIwEGDAAATfklEQ…eqqkreGVieU1X0LwJUP9Qq1E5U9wpmznyqypjARj1V9f8yedF5asE/XAAAAABJRU5ErkJggg==) 3px -23px no-repeat;
+  background-size: 22px 102px;
+  width: 31px;
+  height: 30px;
+}
+
 </style>	
 </head>
 <body>
-<div style="background-color:black; height:120px; color:white; padding:10px;">
-<h3>London</h3>
-<span class="border">P</span>
-<span class="border">A</span>
-<span class="border">Y</span>
-<span class="border">C</span>
-<span class="border">O</span>
+<div class="panel panel-default">
+	<div class="panel-body">
+	<span><strong>RealTime Payco</strong></span>
+	<span style="position:absolute; right:5px; top:12px">
+		<a href="http://www.payco.com" target="_blank"><button type="button" class="btn btn-danger btn-sm">Go Payco</button></a>
+	</span>
+	</div>
+</div>
+<div class="box">
+<img src="./korea2.png">
+</div>
+<div id="target">
+<div class="widget-expand-button-pegman-icon" style="background-image: url(https://maps.gstatic.com/tactile/pegman_v2/default/pegman-runway-1x.png);" tabindex="-1"> 
+</div>
 </div>
 
+<script>
+//file:///D:/workspace/chrome/page/hello.html
+
+$( document ).ready(function() {
+	setInterval(display, 1500);
+});
+
+var data = {
+	pos : [
+	{
+		top: "112px",
+		left: "84px"
+	},
+	{
+		top: "221px",
+		left: "96px"
+	},
+	{
+		top: "183px",
+		left: "172px"
+	},
+	{
+		top: "132px",
+		left: "64px"
+	},
+	{
+		top: "330px",
+		left: "79px"
+	},
+	{
+		top: "112px",
+		left: "84px"
+	},
+	{
+		top: "95px",
+		left: "167px"
+	},
+	{
+		top: "136px",
+		left: "161px"
+	}
+	]
+}
+
+var i = 0;
+var total = data.pos.length;
+
+function display() {
+	var top = data.pos[i].top;
+	var left = data.pos[i].left;
+	
+	$("#target").show().css({"top":top, "left":left});
+	
+	console.log(total +" : "+ i );
+	
+	i = i + 1;
+	if( i >= total) {
+		i = 0;
+	}
+}
+
+/*
+$( document ).click(function( event ) {
+  console.dir(event);
+  event.stopPropagation();
+});
+*/
+</script>
 </body>
 </html>
